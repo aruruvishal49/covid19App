@@ -26,7 +26,7 @@ class App extends Component {
   componentDidMount() {
     document.body.style.backgroundColor = "#000000"
 
-    fetch('https://covidapp.free.beeceptor.com/statedistrict')
+    fetch('https://covid19datalatest.s3.amazonaws.com/state_district.json')
       .then(res => res.json())
       .then((data) => {
         this.setState({ allstatesdata: data })
@@ -44,7 +44,7 @@ class App extends Component {
 
   getActiveData = () => {
     if (this.state.inputString == '') {
-      fetch('https://covidapp.free.beeceptor.com/data')
+      fetch('https://covid19datalatest.s3.amazonaws.com/data.json')
         .then(res => res.json())
         .then((data) =>
          this.setState({ cases_time_series: data.cases_time_series })
