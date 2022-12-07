@@ -26,7 +26,7 @@ class App extends Component {
   componentDidMount() {
     document.body.style.backgroundColor = "#000000"
 
-    fetch('http://demo7351620.mockable.io/getstatedistrict')
+    fetch('https://covidapp.free.beeceptor.com/statedistrict')
       .then(res => res.json())
       .then((data) => {
         this.setState({ allstatesdata: data })
@@ -44,7 +44,7 @@ class App extends Component {
 
   getActiveData = () => {
     if (this.state.inputString == '') {
-      fetch('http://demo7351620.mockable.io/getData')
+      fetch('https://covidapp.free.beeceptor.com/data')
         .then(res => res.json())
         .then((data) =>
          this.setState({ cases_time_series: data.cases_time_series })
