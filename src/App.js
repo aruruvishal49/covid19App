@@ -70,7 +70,9 @@ class App extends Component {
       })
     }
   }
- const options = {
+
+  render() {
+    const options = {
       title:{
         text: "India"
       },
@@ -96,8 +98,6 @@ class App extends Component {
         lineColor: "red"
       }]
     };
-  render() {
-   
     return (
 
 
