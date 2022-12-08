@@ -139,7 +139,7 @@ class App extends Component {
         </div>
           <b class="whiteColor">Input State Name/Abbr:</b>
           <ReactAutocomplete
-            getItemValue={(item) => item.name}
+            getItemValue={(item) => item}
             shouldItemRender={(item, value) => item.name.toLowerCase().startsWith(value.toLowerCase())}
 
             items={[
