@@ -32,7 +32,13 @@ class App extends Component {
         this.setState({ allstatesdata: data })
         this.setState({ statesdata: data.filter(d => d.statecode === this.state.inputString.toUpperCase()) })
       })
-      .catch(console.log)    
+      .catch(console.log)  
+      fetch('https://covid19datalatest.s3.amazonaws.com/data.json')
+        .then(res => res.json())
+        .then((data) =>
+         this.setState({ cases_time_series: data.cases_time_series })
+        )
+        .catch(console.log)
   }
 
   handleChange(value) {
@@ -43,13 +49,7 @@ class App extends Component {
   }
 
   getActiveData = () => {
-    if (this.state.inputString == '') {
-      fetch('https://covid19datalatest.s3.amazonaws.com/data.json')
-        .then(res => res.json())
-        .then((data) =>
-         this.setState({ cases_time_series: data.cases_time_series })
-         )
-        .catch(console.log)
+    if (this.state.inputString == '') {    
       return this.state.cases_time_series.map(item => {
         return { label: item.date, y: parseInt(item.dailyconfirmed, 10) }
       })
