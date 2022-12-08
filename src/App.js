@@ -140,7 +140,7 @@ class App extends Component {
           <b class="whiteColor">Input State Name/Abbr:</b>
           <ReactAutocomplete
             getItemValue={(item) => item}
-            shouldItemRender={(item, value) => item.name.toLowerCase().startsWith(value.toLowerCase())}
+            shouldItemRender={(item, value) => item.label.toLowerCase().startsWith(value.toLowerCase())}
 
             items={[
               { label: 'AP', name: "Andhra Pradesh" }, { label: 'AR', name: "Arunachal Pradesh" },
