@@ -44,7 +44,7 @@ class App extends Component {
   handleChange(value) {
     console.log("handle Change" , value);
     this.setState({
-      inputString: value.label
+      inputString: value
     });
     this.componentDidMount();
   }
@@ -139,7 +139,7 @@ class App extends Component {
         </div>
           <b class="whiteColor">Input State Name/Abbr:</b>
           <ReactAutocomplete
-            getItemValue={(item) => item}
+            getItemValue={(item) => item.label}
             shouldItemRender={(item, value) => item.label.toLowerCase().startsWith(value.toLowerCase())}
 
             items={[
@@ -169,7 +169,7 @@ class App extends Component {
               </div>
             }
             value={this.state.inputString}
-            onChange={e => this.handleChange(e.target)}
+            onChange={e => this.handleChange(e.target.value)}
             onSelect={(val) => this.handleChange(val)}
           />
         </center>
